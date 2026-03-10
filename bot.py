@@ -15,8 +15,8 @@ from telegram.ext import (
 # ║           ВСТАВЬ СВОИ ТОКЕНЫ СЮДА (между кавычками)         ║
 # ╚══════════════════════════════════════════════════════════════╝
 
-TELEGRAM_BOT_TOKEN = "вставь_сюда_токен_от_BotFather"
-ANTHROPIC_API_KEY  = "вставь_сюда_ключ_от_Anthropic"
+TELEGRAM_BOT_TOKEN = "7359290494:AAGVjYBFHT0kItsogXHBd31ikae8VTjQ3TM"
+ANTHROPIC_API_KEY  = "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"
 
 # ─── Логирование ────────────────────────────────────────────────────────────
 logging.basicConfig(
