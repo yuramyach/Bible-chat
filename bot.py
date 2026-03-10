@@ -173,47 +173,48 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     uid = update.effective_user.id
+    chat_id = update.effective_chat.id
 
     if query.data == "daily_verse":
-        await query.edit_message_text("Ищу стих для тебя... ✨")
+        await context.bot.send_message(chat_id, "Ищу стих для тебя... ✨")
         reply = ask_claude(
             uid,
             "Дай стих дня",
             "Выбери один вдохновляющий библейский стих с точной ссылкой. "
             "Объясни смысл в 2-3 предложениях. Добавь ободрение.",
         )
-        await query.edit_message_text(reply)
+        await context.bot.send_message(chat_id, reply)
 
     elif query.data == "daily_prayer":
-        await query.edit_message_text("Составляю молитву... 🙏")
+        await context.bot.send_message(chat_id, "Составляю молитву... 🙏")
         reply = ask_claude(
             uid,
             "Дай молитву на сегодня",
             "Напиши искреннюю молитву на день. Живую и личную, не шаблонную. До 100 слов.",
         )
-        await query.edit_message_text(reply)
+        await context.bot.send_message(chat_id, reply)
 
     elif query.data == "bible_question":
-        await query.edit_message_text(
-            "Задай любой вопрос о Библии — я постараюсь помочь! 📖\n\n"
-            "Просто напиши свой вопрос:"
+        await context.bot.send_message(
+            chat_id,
+            "Задай любой вопрос о Библии — я постараюсь помочь! 📖\n\nПросто напиши свой вопрос:"
         )
 
     elif query.data == "support":
-        await query.edit_message_text(
-            "Я здесь, и я слушаю тебя. 🕊️\n\n"
-            "Расскажи, что происходит. Что тебя тревожит?"
+        await context.bot.send_message(
+            chat_id,
+            "Я здесь, и я слушаю тебя. 🕊️\n\nРасскажи, что происходит. Что тебя тревожит?"
         )
 
     elif query.data == "principles":
-        await query.edit_message_text("Готовлю ответ... ✝️")
+        await context.bot.send_message(chat_id, "Готовлю ответ... ✝️")
         reply = ask_claude(
             uid,
             "Расскажи о ключевых христианских принципах жизни",
             "Объясни 3-4 главных христианских принципа жизни просто и понятно. "
             "С примерами из Библии. Тепло и без морализаторства.",
         )
-        await query.edit_message_text(reply)
+        await context.bot.send_message(chat_id, reply)
 
 
 # ─── Обычные сообщения ────────────────────────────────────────────────────────
